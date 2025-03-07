@@ -4,7 +4,7 @@
 		"attack_name": "US Election Interference",
 		"description": "Targeted voting systems and campaign infrastructure",
 		"origin": "russia",
-		"region": "north_america",
+		"region": "red",
 		"country": "united_states",
 		"date": "2016-05-01",
 		"info_link": "https://example.com/apt28-election"
@@ -14,7 +14,7 @@
 		"attack_name": "WannaCry Ransomware",
 		"description": "Global ransomware attack affecting healthcare systems",
 		"origin": "north_korea",
-		"region": "global",
+		"region": "red",
 		"country": "multiple",
 		"date": "2017-05-12",
 		"info_link": "https://example.com/lazarus-wannacry"
@@ -24,7 +24,7 @@
 		"attack_name": "NotPetya",
 		"description": "Destructive malware targeting Ukrainian infrastructure",
 		"origin": "russia",
-		"region": "europe",
+		"region": "blue",
 		"country": "ukraine",
 		"date": "2017-06-27",
 		"info_link": "https://example.com/sandworm-notpetya"
@@ -34,7 +34,7 @@
 		"attack_name": "Supply Chain Compromise",
 		"description": "Software supply chain attacks on gaming companies",
 		"origin": "china",
-		"region": "asia",
+		"region": "green",
 		"country": "multiple",
 		"date": "2019-03-15",
 		"info_link": "https://example.com/apt41-supplychain"
@@ -44,7 +44,7 @@
 		"attack_name": "POS Malware Campaign",
 		"description": "Point-of-sale system attacks on retail chains",
 		"origin": "unknown",
-		"region": "europe",
+		"region": "green",
 		"country": "multiple",
 		"date": "2018-08-01",
 		"info_link": "https://example.com/fin7-pos"
@@ -54,7 +54,7 @@
 		"attack_name": "Bank Heist",
 		"description": "Targeted bank networks for financial theft",
 		"origin": "russia",
-		"region": "global",
+		"region": "green",
 		"country": "multiple",
 		"date": "2015-02-15",
 		"info_link": "https://example.com/carbanak-heist"

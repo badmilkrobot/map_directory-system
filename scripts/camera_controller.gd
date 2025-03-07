@@ -44,15 +44,39 @@ func _process(delta: float) -> void:
 ## Handles camera zooming toward/away from mouse cursor position.
 ## Uses camera_in and camera_out input actions to control zoom level
 ## and interpolates smoothly between current zoom and target zoom.
-## The camera zooms toward the mouse cursor position.
+## The camera zooms toward the mouse cursor position and respects map boundaries.
 func zoom_camera(delta: float) -> void:
     var old_zoom = zoom
+    var viewport_size = get_viewport_rect().size
+    
+    # Calculate the absolute minimum zoom based on world boundaries
+    var world_width = abs(view_right.position.x - view_left.position.x)
+    var world_height = abs(view_bottom.position.y - view_top.position.y)
+    
+    # Calculate zoom factors needed to fit the world in the viewport
+    var zoom_x_min = viewport_size.x / world_width
+    var zoom_y_min = viewport_size.y / world_height
+    
+    # Use the smaller value to ensure entire world fits in view
+    var absolute_min_zoom = min(zoom_x_min, zoom_y_min)
+    
+    # Create a Vector2 for the absolute minimum zoom
+    var absolute_min_zoom_vec = Vector2(absolute_min_zoom, absolute_min_zoom)
+    
+    # Use the larger of user-defined min zoom and calculated absolute min zoom
+    var effective_min_zoom = Vector2(
+        max(zoom_min.x, absolute_min_zoom_vec.x),
+        max(zoom_min.y, absolute_min_zoom_vec.y)
+    )
 
     if Input.is_action_just_pressed("camera_in") and zoom_target < zoom_max:
         zoom_target *= 1.1
 
-    if Input.is_action_just_pressed("camera_out") and zoom_target > zoom_min:
-        zoom_target *= 0.9
+    if Input.is_action_just_pressed("camera_out"):
+        var potential_zoom = zoom_target * 0.9
+        # Only zoom out if we're still within bounds
+        if potential_zoom > effective_min_zoom:
+            zoom_target = potential_zoom
 
     zoom = zoom.slerp(zoom_target, zoom_speed * delta)
 

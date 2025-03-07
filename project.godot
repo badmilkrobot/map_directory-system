@@ -14,6 +14,12 @@ config/name="map_directory-system"
 run/main_scene="uid://o2f5migv4je"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/always_on_top=true
+
 [input]
 
 camera_in={

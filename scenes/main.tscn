@@ -1,11 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://o2f5migv4je"]
+[gd_scene load_steps=18 format=3 uid="uid://o2f5migv4je"]
 
 [ext_resource type="Script" uid="uid://bw25gbc2pxyrr" path="res://scripts/main.gd" id="1_sugp2"]
-[ext_resource type="Texture2D" uid="uid://c3omji18qbofd" path="res://assets/map/pixel-world-globe-map-vector.jpg" id="2_jyhfs"]
+[ext_resource type="Script" uid="uid://bnkjxg1cwo1kg" path="res://scenes/ui_layer.gd" id="2_muem4"]
+[ext_resource type="Texture2D" uid="uid://dnr7nly8hx15c" path="res://assets/map/Artboard4.png" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://drsk4dafom07u" path="res://scripts/camera_controller.gd" id="3_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://bkt0ol2l2dgm3" path="res://assets/map/normal1.png" id="3_tefeu"]
+[ext_resource type="Texture2D" uid="uid://wei22uy3ii1g" path="res://assets/map/pressed1.png" id="4_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://d3xg1hfayuxjp" path="res://assets/map/hover1.png" id="5_tipki"]
+[ext_resource type="BitMap" uid="uid://dn3pmmw2k5sra" path="res://assets/map/mask1.bmp" id="7_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://b8kyvrvd523eh" path="res://assets/map/normal2.png" id="8_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://dcdokmu36v33" path="res://assets/map/pressed2.png" id="9_jbj1t"]
+[ext_resource type="Texture2D" uid="uid://v0ua6hj7ootk" path="res://assets/map/hover2.png" id="10_muem4"]
+[ext_resource type="BitMap" uid="uid://bfaxet6l3fuw5" path="res://assets/map/mask2.bmp" id="11_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://dpad7vfq1bi6p" path="res://assets/map/normal3.png" id="12_0ld40"]
+[ext_resource type="Texture2D" uid="uid://d4muehj6jfcyh" path="res://assets/map/pressed3.png" id="13_gqmmt"]
+[ext_resource type="Texture2D" uid="uid://xpaok2ynwikp" path="res://assets/map/hover3.png" id="14_yc10j"]
+[ext_resource type="BitMap" uid="uid://dnyimye24cubx" path="res://assets/map/mask3.bmp" id="15_jscy8"]
+[ext_resource type="PackedScene" uid="uid://lr82etvfuhxi" path="res://scenes/info_box.tscn" id="16_jbj1t"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_sugp2")
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+script = ExtResource("2_muem4")
+
+[node name="InfoBox" parent="UILayer" instance=ExtResource("16_jbj1t")]
+anchors_preset = 11
+anchor_left = 1.0
+grow_horizontal = 0
+size_flags_horizontal = 8
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("view_top", "view_bottom", "view_left", "view_right")]
 script = ExtResource("3_tbgi4")
@@ -17,16 +40,49 @@ zoom_max = Vector2(2, 2)
 zoom_min = Vector2(0.45, 0.45)
 
 [node name="top" type="Marker2D" parent="Camera2D"]
-position = Vector2(0, -952)
+position = Vector2(0, -540)
 
 [node name="bottom" type="Marker2D" parent="Camera2D"]
-position = Vector2(0, 952)
+position = Vector2(0, 542)
 
 [node name="left" type="Marker2D" parent="Camera2D"]
-position = Vector2(-1400, 0)
+position = Vector2(-964, 0)
 
 [node name="right" type="Marker2D" parent="Camera2D"]
-position = Vector2(1400, 0)
+position = Vector2(962, -3)
 
-[node name="Pixel-world-globe-map-vector" type="Sprite2D" parent="."]
-texture = ExtResource("2_jyhfs")
+[node name="Artboard4" type="Sprite2D" parent="."]
+texture = ExtResource("3_sugp2")
+
+[node name="test1" type="TextureButton" parent="."]
+offset_left = -506.0
+offset_top = -355.0
+offset_right = -163.0
+offset_bottom = -34.0
+texture_normal = ExtResource("3_tefeu")
+texture_pressed = ExtResource("4_o6xl0")
+texture_hover = ExtResource("5_tipki")
+texture_focused = ExtResource("4_o6xl0")
+texture_click_mask = ExtResource("7_o6xl0")
+
+[node name="test2" type="TextureButton" parent="."]
+offset_left = 189.0
+offset_top = -433.0
+offset_right = 576.0
+offset_bottom = 139.0
+texture_normal = ExtResource("8_jkv2x")
+texture_pressed = ExtResource("9_jbj1t")
+texture_hover = ExtResource("10_muem4")
+texture_focused = ExtResource("9_jbj1t")
+texture_click_mask = ExtResource("11_dp3eg")
+
+[node name="test3" type="TextureButton" parent="."]
+offset_left = -420.0
+offset_top = 88.0
+offset_right = -7.0
+offset_bottom = 412.0
+texture_normal = ExtResource("12_0ld40")
+texture_pressed = ExtResource("13_gqmmt")
+texture_hover = ExtResource("14_yc10j")
+texture_focused = ExtResource("13_gqmmt")
+texture_click_mask = ExtResource("15_jscy8")

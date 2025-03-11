@@ -19,7 +19,7 @@ func _ready():
 ## Callback when test1 button is pressed
 func _on_test1_pressed() -> void:
 	info_box.show()
-	info_box.print_region_info("[center][b]Red Region[/b][/center]\nThis is a test of the info box system.")
+	info_box.print_region_info(str(get_region_data("red")))
 
 
 ## Callback when test2 button is pressed
@@ -46,13 +46,25 @@ func load_data() -> void:
 			var current_file_path = "res://data/" + file_name
 			var json_data = JSON.parse_string(FileAccess.get_file_as_string(current_file_path))
 			if json_data:
-				for region in json_data:
-					if "region_name" in region:
-						region_data[region["region_name"]] = region
-				print("Loaded data from file")
+				for data_set in json_data:
+					if "uid" in data_set:
+						region_data[data_set["uid"]] = data_set
+					print("Loaded data for " + data_set["attack_name"])
 			file_name = data_directory_access.get_next()
 
 		data_directory_access.list_dir_end()
-		print(region_data)
 	else:
 		print("Error: Could not access data directory")
+
+func get_region_data(region_id: String) -> Dictionary:
+	var region_data_set: Dictionary = {}
+	var region_data_id: int = 0
+	for data_set in region_data:
+		print(data_set)
+		if region_data[data_set]["region"] == region_id:
+			region_data_set[region_data_id] = region_data[data_set]
+			region_data_id += 1
+		else:
+			print("Error: Could not find region data for " + region_id)
+
+	return region_data_set

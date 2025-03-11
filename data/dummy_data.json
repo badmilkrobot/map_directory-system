@@ -1,5 +1,6 @@
 [
 	{
+		"uid": "1",
 		"group": "APT28",
 		"attack_name": "US Election Interference",
 		"description": "Targeted voting systems and campaign infrastructure",
@@ -10,6 +11,7 @@
 		"info_link": "https://example.com/apt28-election"
 	},
 	{
+		"uid": "2",
 		"group": "Lazarus",
 		"attack_name": "WannaCry Ransomware",
 		"description": "Global ransomware attack affecting healthcare systems",
@@ -20,6 +22,7 @@
 		"info_link": "https://example.com/lazarus-wannacry"
 	},
 	{
+		"uid": "3",
 		"group": "Sandworm",
 		"attack_name": "NotPetya",
 		"description": "Destructive malware targeting Ukrainian infrastructure",
@@ -30,6 +33,7 @@
 		"info_link": "https://example.com/sandworm-notpetya"
 	},
 	{
+		"uid": "4",
 		"group": "APT41",
 		"attack_name": "Supply Chain Compromise",
 		"description": "Software supply chain attacks on gaming companies",
@@ -40,6 +44,7 @@
 		"info_link": "https://example.com/apt41-supplychain"
 	},
 	{
+		"uid": "5",
 		"group": "FIN7",
 		"attack_name": "POS Malware Campaign",
 		"description": "Point-of-sale system attacks on retail chains",
@@ -50,6 +55,7 @@
 		"info_link": "https://example.com/fin7-pos"
 	},
 	{
+		"uid": "6",
 		"group": "Carbanak",
 		"attack_name": "Bank Heist",
 		"description": "Targeted bank networks for financial theft",

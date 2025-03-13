@@ -19,19 +19,19 @@ func _ready():
 ## Callback when test1 button is pressed
 func _on_test1_pressed() -> void:
 	info_box.show()
-	info_box.print_region_info(str(get_region_data("red")))
+	info_box.print_region_info(info_box.print_threat_data(get_region_data("red")))
 
 
 ## Callback when test2 button is pressed
 func _on_test2_pressed() -> void:
 	info_box.show()
-	info_box.print_region_info("[center][b]Blue Region[/b][/center]\nThis is a test of the info box system.")
+	info_box.print_region_info(info_box.print_threat_data(get_region_data("blue")))
 
 
 ## Callback when test3 button is pressed
 func _on_test3_pressed() -> void:
 	info_box.show()
-	info_box.print_region_info("[center][b]Green Region[/b][/center]\nThis is a test of the info box system.")
+	info_box.print_region_info(info_box.print_threat_data(get_region_data("green")))
 
 
 ## Loads and parses data from the data folder
@@ -52,10 +52,14 @@ func load_data() -> void:
 					print("Loaded data for " + data_set["attack_name"])
 			file_name = data_directory_access.get_next()
 
+		print(region_data)
+
 		data_directory_access.list_dir_end()
 	else:
 		print("Error: Could not access data directory")
 
+## Returns a dictionary of region data based on the region_id
+## region_id: The region id to search for
 func get_region_data(region_id: String) -> Dictionary:
 	var region_data_set: Dictionary = {}
 	var region_data_id: int = 0

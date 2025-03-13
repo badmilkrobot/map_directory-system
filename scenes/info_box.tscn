@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://lr82etvfuhxi"]
 
-[ext_resource type="Script" uid="uid://de7a3kbqum2nb" path="res://scenes/info_box.gd" id="1_tjcum"]
+[ext_resource type="Script" uid="uid://de7a3kbqum2nb" path="res://scripts/info_box.gd" id="1_tjcum"]
 
 [node name="InfoBox" type="Control"]
 layout_mode = 3
@@ -12,7 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_tjcum")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0

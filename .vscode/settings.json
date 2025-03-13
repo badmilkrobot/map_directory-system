@@ -10,6 +10,7 @@
         "**/*.gitignore": true,
         "**/*.gitmodules": true,
         "**/*.uid": true,
+        "**/*.editorconfig": true,
         },
     // Add more settings here 
 }
